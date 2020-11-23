@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_82sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/_80sdp"
+    android:orientation="vertical"
+
+    android:backgroundTint="@color/gray_light">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_item_categories"
+    android:layout_width="@dimen/_74sdp"
+    android:layout_height="@dimen/_74sdp"
+    android:layout_marginTop="@dimen/_3sdp"
+    android:layout_marginLeft="@dimen/_3sdp"
+        android:src="@color/gray_light"
+
+        >
+
+    </de.hdodenhof.circleimageview.CircleImageView>
+
+    <TextView
+        android:id="@+id/tv_item_categories_in_circle"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="-60dp"
+
+        android:fontFamily="@font/archivo_black"
+        android:text=""
+        android:lines="1"
+
+
+        android:textColor="@color/darker_green"
+        android:textSize="@dimen/_30sdp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/tv_item_categories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/_24sdp"
+        android:fontFamily="@font/work_sans_thin"
+        android:text=""
+
+
+        android:textColor="@color/black"
+
+        android:textSize="@dimen/_20sdp"
+        android:textStyle="bold" />
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        >
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray"
+            android:layout_gravity="bottom"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

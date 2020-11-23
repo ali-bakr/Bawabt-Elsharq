@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/_130sdp"
+    android:layout_height="@dimen/_165sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="8dp"
+    android:layout_marginLeft="@dimen/_5sdp"
+    android:layout_marginTop="@dimen/_15sdp"
+
+    >
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical"
+       android:layout_margin="@dimen/_2sdp"
+       >
+
+       <ImageView
+           android:id="@+id/tv_product_img_item"
+           android:layout_width="match_parent"
+           android:layout_height="@dimen/_90sdp"
+           android:background="@color/gray_light"
+           android:layout_margin="@dimen/_1sdp"/>
+
+       <TextView
+           android:id="@+id/tv_product_name_item"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:lines="1"
+           android:layout_gravity="right"
+
+           android:fontFamily="@font/archivo_black"
+           android:text="name"
+           android:layout_marginRight="@dimen/_3sdp"
+           android:layout_marginLeft="@dimen/_3sdp"
+
+           android:textColor="@color/message_dark"
+           android:layout_marginTop="@dimen/_12sdp"
+           android:textSize="@dimen/_8sdp"
+           />
+       <TextView
+           android:id="@+id/tv_product_price_item"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:lines="1"
+           android:layout_marginRight="@dimen/_3sdp"
+           android:layout_marginLeft="@dimen/_3sdp"
+           android:fontFamily="@font/archivo_black"
+           android:text="122$"
+           android:textColor="@android:color/black"
+           android:layout_marginTop="@dimen/_2sdp"
+           android:textSize="@dimen/_10sdp"
+           />
+       <LinearLayout
+           android:padding="@dimen/_1sdp"
+           android:layout_marginTop="@dimen/_3sdp"
+           android:layout_width="match_parent"
+           android:layout_height="@dimen/_23sdp"
+           android:orientation="horizontal"
+           >
+           <TextView
+               android:id="@+id/imgbtn_chat_supplier_item"
+               android:layout_width="@dimen/_65sdp"
+               android:layout_height="@dimen/_20sdp"
+               android:text="Contact Supplier"
+               android:textAlignment="center"
+               android:paddingTop="@dimen/_5sdp"
+               android:textColor="@color/white"
+               android:textStyle="bold"
+               android:textSize="@dimen/_7sdp"
+               android:background="@drawable/button_back_oranga"
+
+
+               />
+           <TextView
+               android:id="@+id/imgbtn_cart_item"
+               android:layout_width="@dimen/_40sdp"
+               android:layout_height="@dimen/_20sdp"
+               android:layout_marginLeft="@dimen/_17sdp"
+               android:background="@drawable/button_back_gray_green"
+               android:drawableStart="@drawable/ic_baseline_shopping_cart_24"
+               android:paddingLeft="@dimen/_11sdp"
+
+               />
+
+
+       </LinearLayout>
+   </LinearLayout>
+</androidx.cardview.widget.CardView>

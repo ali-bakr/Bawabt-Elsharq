@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_light"
+    >
+
+    <LinearLayout
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="5dp"
+        android:orientation="vertical"
+        android:background="@drawable/slide_chat_back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="70dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_back_gray_light"
+                app:layout_constraintEnd_toEndOf="parent"
+              android:layout_gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/person_logo"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/gray_light"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+        <LinearLayout
+
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="56dp"
+
+                android:layout_marginRight="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="8dp"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+
+
+            android:layout_width="match_parent"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:background="@drawable/button_back_gray_light"
+            android:layout_marginTop="-55dp"
+            >
+<EditText
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="5dp"
+    android:background="@drawable/button_back_gray_light"
+    android:layout_marginRight="50dp"
+    android:hint="enter your text"
+    android:textColorHint="@color/gray"
+
+    android:textColor="@color/message_dark"/>
+
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="-44dp"
+                android:layout_marginTop="5dp"
+               android:background="@drawable/button_back_gray_light2"
+                android:src="@drawable/ic_baseline_navigation_24"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+      </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Bawabt Elsharq</string>
+
+    <string-array name="register_statues">
+        <item>Buyer</item>
+        <item>Seller</item>
+    </string-array>
+</resources>
