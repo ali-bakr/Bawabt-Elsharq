@@ -1,4 +1,4 @@
-package com.aliaboubakr.bawabtelsharq.ui.fragments.bottom_navigation.nav_profile.get_link_with_us;
+package com.aliaboubakr.bawabtelsharq.ui.fragments.bottom_navigation.nav_profile.social;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,12 +11,12 @@ import androidx.fragment.app.Fragment;
 
 import com.aliaboubakr.bawabtelsharq.R;
 
-public class GetLinkWithUsFragment extends Fragment {
+public class SocialFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.fragment_get_link_with_us,container,false);
+        View v = inflater.inflate(R.layout.fragment_social,container,false);
 
         return v;
     }
