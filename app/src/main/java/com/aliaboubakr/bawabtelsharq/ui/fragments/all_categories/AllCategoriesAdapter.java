@@ -60,8 +60,9 @@ Log.e("onCreateViewHolder","done");
     private void fillData(@NonNull AllCategoriesVH holder, int position) {
 
         Category categoryList= allCategoriesModelList.get(position);
+        holder.categoryProductCount.setText(categoryList.getProductCount());
         holder.categoryName.setText(categoryList.getCategory());
-     //   holder.categoryChar.setText(categoryList.getCategory());
+       holder.categoryChar.setText(categoryList.getCategory());
        // Log.e("try",categoryList.getCategory());
         holder.categoryName.setBackground(null);
         //set the categories image when it's available
@@ -77,7 +78,8 @@ Log.e("onCreateViewHolder","done");
 
     public class AllCategoriesVH extends RecyclerView.ViewHolder{
 
-        TextView categoryName,categoryChar;
+
+        TextView categoryName,categoryChar,categoryProductCount;
         CircleImageView categoryImage;
 
         public AllCategoriesVH(@NonNull View itemView) {
@@ -86,7 +88,7 @@ Log.e("onCreateViewHolder","done");
             categoryName=itemView.findViewById(R.id.tv_item_categories);
             categoryImage=itemView.findViewById(R.id.iv_item_categories);
             categoryChar=itemView.findViewById(R.id.tv_item_categories_in_circle);
-
+            categoryProductCount=itemView.findViewById(R.id.tv_item_product_count);
             itemOnClick(itemView);
         }
 

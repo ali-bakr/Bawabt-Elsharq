@@ -40,6 +40,10 @@ public interface Api {
     @GET ("categories/{id}/products&status=A")
     Call<ProductsData> getCategoryProducts(@Header("Authorization") String str, @Path("id") String id);
 
+    @GET ("vendors/{id}/products&status=A")
+    Call<ProductsData> getVendorsProducts(@Header("Authorization") String str, @Path("id") String id);
+
+
 
 }
 

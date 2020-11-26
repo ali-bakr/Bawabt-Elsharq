@@ -6,13 +6,13 @@
     app:cardCornerRadius="@dimen/_80sdp"
     android:backgroundTint="@color/gray_light">
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <ImageView
         android:id="@+id/iv_item_suppliers_img"
     android:layout_width="@dimen/_74sdp"
     android:layout_height="@dimen/_74sdp"
     android:layout_marginTop="@dimen/_3sdp"
     android:layout_marginLeft="@dimen/_3sdp"
-        android:src="@color/gray_light"
+        android:src="@drawable/seller_logo"
 
         />
     <LinearLayout

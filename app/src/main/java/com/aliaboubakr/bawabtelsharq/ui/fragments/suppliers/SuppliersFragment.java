@@ -20,8 +20,9 @@ import com.aliaboubakr.bawabtelsharq.client.Api;
 import com.aliaboubakr.bawabtelsharq.client.RetrofitClient;
 import com.aliaboubakr.bawabtelsharq.models.Vendors.Vendor;
 import com.aliaboubakr.bawabtelsharq.models.Vendors.VendorsData;
-import com.aliaboubakr.bawabtelsharq.ui.fragments.profiles.profile_product.ProfileProductFragment;
 import com.aliaboubakr.bawabtelsharq.ui.fragments.profiles.profile_supplier.ProfileSupplierFragment;
+import com.github.ybq.android.spinkit.sprite.Sprite;
+import com.github.ybq.android.spinkit.style.Circle;
 
 import java.util.List;
 
@@ -53,20 +54,25 @@ public class SuppliersFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        setIds(view);
+        initiate(view);
 
 
     }
 
-    private void setIds(View view) {
+    private void initiate(View view) {
     recyclerView=view.findViewById(R.id.rv_suppilers);
     linearLayoutManager=new LinearLayoutManager(getActivity());
     recyclerView.setHasFixedSize(true);
     linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
     recyclerView.setLayoutManager(linearLayoutManager);
-    progressBar=view.findViewById(R.id.all_suppliers_progress);
+   // progressBar=view.findViewById(R.id.all_suppliers_progress);
 
-    getAllSuppllers();
+        progressBar = (ProgressBar)view.findViewById(R.id.spin_kit_suppliers);
+        Sprite doubleBounce = new Circle();
+        progressBar.setIndeterminateDrawable(doubleBounce);
+
+
+        getAllSuppllers();
     }
 
     private void getAllSuppllers() {

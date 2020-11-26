@@ -19,7 +19,8 @@
     android:layout_height="@dimen/_74sdp"
     android:layout_marginTop="@dimen/_3sdp"
     android:layout_marginLeft="@dimen/_3sdp"
-        android:src="@color/gray_light"
+        android:src="@drawable/all_cat_logo"
+
 
         >
 
@@ -27,12 +28,12 @@
 
     <TextView
         android:id="@+id/tv_item_categories_in_circle"
-        android:layout_width="30dp"
+        android:layout_width="42dp"
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/_10sdp"
         android:layout_gravity="center_vertical"
-        android:layout_marginLeft="-60dp"
-
+        android:layout_marginLeft="-66dp"
+        android:visibility="invisible"
         android:fontFamily="@font/archivo_black"
         android:text=""
         android:lines="1"
@@ -43,19 +44,26 @@
         android:textStyle="bold" />
     <TextView
         android:id="@+id/tv_item_categories"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/_210sdp"
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/_10sdp"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="@dimen/_24sdp"
-        android:fontFamily="@font/work_sans_thin"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/_17sdp"
+        />
+    <TextView
+        android:id="@+id/tv_item_product_count"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_marginLeft="-70dp"
+        android:layout_gravity="bottom"
+        android:paddingRight="@dimen/_3sdp"
+        android:paddingLeft="@dimen/_3sdp"
         android:text=""
-
-
-        android:textColor="@color/black"
-
-        android:textSize="@dimen/_20sdp"
-        android:textStyle="bold" />
+        android:textColor="@color/darker_orange"
+        android:textSize="@dimen/_17sdp"
+        />
 </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

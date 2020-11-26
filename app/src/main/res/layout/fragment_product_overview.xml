@@ -94,7 +94,7 @@
                 android:layout_height="match_parent">
 
 
-
+<!--
                     <com.denzcoskun.imageslider.ImageSlider
                         android:id="@+id/image_slider"
                         android:layout_width="match_parent"
@@ -105,6 +105,17 @@
                         app:iss_period="500"
                         app:iss_placeholder="@color/gray_light"
                         app:iss_title_background="@drawable/slid_text_back" />
+-->
+                <com.denzcoskun.imageslider.ImageSlider
+                    android:id="@+id/image_slider"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    app:iss_auto_cycle="true"
+                    app:iss_delay="0"
+                    app:iss_period="500"
+                    app:iss_placeholder="@color/gray_light"
+                    app:iss_title_background="@drawable/slid_text_back" />
 
 
                 <TextView

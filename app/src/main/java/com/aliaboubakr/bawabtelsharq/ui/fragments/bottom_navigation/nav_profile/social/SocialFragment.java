@@ -18,9 +18,9 @@ import com.aliaboubakr.bawabtelsharq.R;
 
 public class SocialFragment extends Fragment {
 
-    private String instaPackage="com.instagram.android",instaLink="https://www.instagram.com/bawabtalsharqstore";
+    private String instaPackage="com.instagram.android",instaLink="https://www.instagram.com/bawabtalsharq_b2b";
     private String facePackage="com.facebook.katana",faceLink="https://www.facebook.com/Bawabtalsharqegypt/";
-    private String twitterPackage="com.twitter.android",twitterLink="";
+    private String twitterPackage="com.twitter.android",twitterLink="https://twitter.com/AlsharqBawabt";
     private String linkedinPackage="com.linkedin.android",linkedinLink="https://www.linkedin.com/company/bawabtalsharq";
     private String youtubePackage="com.youtube.android",youtubeLink="https://www.youtube.com/channel/UCrxsSE1877L5p9pPrb1VHsQ";
     private String whatsappPackage="com.whatsapp",whatsappLink="https://api.whatsapp.com/send?phone=+201111526888";
@@ -58,7 +58,7 @@ public class SocialFragment extends Fragment {
         view.findViewById(R.id.social_click_twitter).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                openSocialApp(twitterPackage,twitterLink);
             }
         });
         view.findViewById(R.id.social_click_linkedin).setOnClickListener(new View.OnClickListener() {

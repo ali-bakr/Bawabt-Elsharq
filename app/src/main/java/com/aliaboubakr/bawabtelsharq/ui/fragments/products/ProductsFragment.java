@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -24,6 +26,9 @@ import com.aliaboubakr.bawabtelsharq.models.Products.ProductsData;
 import com.aliaboubakr.bawabtelsharq.models.Products.product.ProductData;
 import com.aliaboubakr.bawabtelsharq.ui.fragments.bottom_navigation.nav_home.adapters.AllProductsAdapter;
 import com.aliaboubakr.bawabtelsharq.ui.fragments.profiles.profile_product.ProfileProductFragment;
+import com.github.ybq.android.spinkit.sprite.Sprite;
+import com.github.ybq.android.spinkit.style.Circle;
+import com.github.ybq.android.spinkit.style.DoubleBounce;
 
 import java.util.List;
 
@@ -39,8 +44,8 @@ public class ProductsFragment extends Fragment {
     TextView categoryName;
     List<Product> productsList=null;
     private LayoutAnimationController controller;
-
-
+    ImageView noProductImg;
+    ProgressBar progressBar;
 
 
     @Nullable
@@ -58,6 +63,7 @@ public class ProductsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
         initiate(view);
         getAllProducts();
 
@@ -65,7 +71,19 @@ public class ProductsFragment extends Fragment {
 
     private void initiate(View view) {
 
+       Bundle bundle =this.getArguments();
+
+        progressBar = (ProgressBar)view.findViewById(R.id.spin_kit);
+        Sprite doubleBounce = new Circle();
+        progressBar.setIndeterminateDrawable(doubleBounce);
+
         recyclerViewProducts=view.findViewById(R.id.rv_products);
+        noProductImg=view.findViewById(R.id.no_product_img);
+        if(bundle.getString("category_product_count").equals("0")){
+           Log.e("ttt","t");
+            noProductImg.setVisibility(View.VISIBLE);
+        }
+        //
         categoryName=view.findViewById(R.id.tv_ctegory_name_product_fragment);
         linearLayoutManager=new GridLayoutManager(getActivity(),2,RecyclerView.VERTICAL,false);
         recyclerViewProducts.setHasFixedSize(true);
@@ -82,8 +100,11 @@ public class ProductsFragment extends Fragment {
         String id="8";
       //  String name;
         id=bundle.getString("category_id");
-    //    name=bundle.getString("category_name");
-        Retrofit retrofit=RetrofitClient.getInstance();
+    String  name=bundle.getString("category_name");
+    Log.e("name",name);
+
+    categoryName.setText(name);
+    Retrofit retrofit=RetrofitClient.getInstance();
         Api api =retrofit.create(Api.class);
         Call<ProductsData> productsDataCall=api.getCategoryProducts(RetrofitClient.decodingBasicAuth(),id);
         productsDataCall.enqueue(new Callback<ProductsData>() {
@@ -91,7 +112,17 @@ public class ProductsFragment extends Fragment {
             public void onResponse(Call<ProductsData> call, Response<ProductsData> response) {
 
                 if (response.isSuccessful()) {
+
+                    progressBar.setVisibility(View.GONE);
                     productsList = response.body().getProducts();
+
+                    if (productsList.size()==0){
+                        noProductImg.setVisibility(View.VISIBLE);
+                    }
+                    else {
+                        noProductImg.setVisibility(View.INVISIBLE);
+                    }
+
                     for (int i = 0; i <productsList.size() ; i++) {
                         if (response.body().getProducts().get(i).getMainPair()==null){
                             Log.e("___null object",String.valueOf(i));
@@ -100,6 +131,7 @@ public class ProductsFragment extends Fragment {
 
                         }
                     }
+
 
                     allProductsAdapter = new AllProductsAdapter(getActivity(), productsList,productsList.size());
 

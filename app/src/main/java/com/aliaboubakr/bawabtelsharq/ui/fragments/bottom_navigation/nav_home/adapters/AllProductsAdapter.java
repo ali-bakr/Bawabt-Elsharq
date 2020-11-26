@@ -33,7 +33,7 @@ public class AllProductsAdapter extends RecyclerView.Adapter<AllProductsAdapter.
     private int newListSize;
   //  private  List<ProductsData> productsDataList;
     //
-    private List<MainPair> mainPairList;
+    //private List<MainPair> mainPairList;
     public  AllProductClickListener allProductClickListener;
 
     //interface for  item clicks

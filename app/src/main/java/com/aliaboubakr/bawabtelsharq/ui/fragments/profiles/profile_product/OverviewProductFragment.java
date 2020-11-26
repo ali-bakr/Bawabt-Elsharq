@@ -37,6 +37,7 @@ public class OverviewProductFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_product_overview,container,false);
+
         return v;
     }
 
@@ -49,14 +50,15 @@ public class OverviewProductFragment extends Fragment {
     }
 
     private void sliderInitialization(View view,String imag_path,String product_name) {
-        imageSlider=view.findViewById(R.id.image_slider);
+
         mProductShortDesc=view.findViewById(R.id.tv_short_des_product_overview);
         mProductMinQ=view.findViewById(R.id.tv_min_q_product_overview);
         mProductMaxQ=view.findViewById(R.id.tv_max_q_product_overview);
         mProductAmount=view.findViewById(R.id.tv_items_count_product_overview);
         mProdctPrice=view.findViewById(R.id.tv_price_product_overview);
         List<SlideModel> sliderModelsArrayList = new ArrayList<>();
-        sliderModelsArrayList.add(new SlideModel(imag_path,product_name, ScaleTypes.FIT));
+        imageSlider=view.findViewById(R.id.image_slider);
+        sliderModelsArrayList.add(new SlideModel(imag_path,product_name, ScaleTypes.CENTER_INSIDE));
         //   rvSlider.setAdapter(sliderAdapterExample);
         imageSlider.setImageList(sliderModelsArrayList);
 

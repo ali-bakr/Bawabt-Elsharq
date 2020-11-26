@@ -33,6 +33,7 @@ import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.github.ybq.android.spinkit.sprite.Sprite;
+import com.github.ybq.android.spinkit.style.Circle;
 import com.github.ybq.android.spinkit.style.DoubleBounce;
 
 import java.util.ArrayList;
@@ -75,7 +76,7 @@ public  class NavHomeFragment extends Fragment {
 
         controller= AnimationUtils.loadLayoutAnimation(getActivity(),R.anim.layout_slide_up);
         progressBar = (ProgressBar)v.findViewById(R.id.spin_kit);
-        Sprite doubleBounce = new DoubleBounce();
+        Sprite doubleBounce = new Circle();
         progressBar.setIndeterminateDrawable(doubleBounce);
         progressBar.setVisibility(View.INVISIBLE);
 

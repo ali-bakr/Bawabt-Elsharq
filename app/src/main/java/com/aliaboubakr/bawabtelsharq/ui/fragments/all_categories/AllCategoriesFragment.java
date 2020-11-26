@@ -22,6 +22,8 @@ import com.aliaboubakr.bawabtelsharq.models.Categories.CategoriesData;
 import com.aliaboubakr.bawabtelsharq.models.Categories.Category;
 import com.aliaboubakr.bawabtelsharq.ui.fragments.products.ProductsFragment;
 import com.aliaboubakr.bawabtelsharq.ui.fragments.profiles.profile_supplier.ProfileSupplierFragment;
+import com.github.ybq.android.spinkit.sprite.Sprite;
+import com.github.ybq.android.spinkit.style.Circle;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -42,6 +44,7 @@ public  class AllCategoriesFragment  extends Fragment {
     ArrayList<Integer> main=new ArrayList<>();
     private LayoutAnimationController controller;
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -54,11 +57,15 @@ public  class AllCategoriesFragment  extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mAllCategoriesRecyclerView=view.findViewById(R.id.rv_all_categories);
+        progressBarAllCategories= (ProgressBar)view.findViewById(R.id.spin_kit_categories);
+        Sprite doubleBounce = new Circle();
+        progressBarAllCategories.setIndeterminateDrawable(doubleBounce);
         vLinearLayoutManager = new LinearLayoutManager(getActivity());
         vLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mAllCategoriesRecyclerView.setHasFixedSize(true);
         mAllCategoriesRecyclerView.setLayoutManager(vLinearLayoutManager);
-        progressBarAllCategories=view.findViewById(R.id.all_categories_progress);
+       // progressBarAllCategories=view.findViewById(R.id.all_categories_progress);
+
         getAllCategories();
     }
     void getAllCategories(){
@@ -84,6 +91,7 @@ public  class AllCategoriesFragment  extends Fragment {
                         main.add(Integer.parseInt(categoryList.get(i).getCategoryId()));
                     }
                 }
+
                 Log.e ("main",main.toString());
                 allCategoriesAdapter = new AllCategoriesAdapter(getActivity(), categoriesList);
 
@@ -97,7 +105,7 @@ public  class AllCategoriesFragment  extends Fragment {
 
                 mAllCategoriesRecyclerView.setLayoutManager(vLinearLayoutManager);
                 mAllCategoriesRecyclerView.setAdapter(allCategoriesAdapter);
-                progressBarAllCategories.setVisibility(View.GONE);
+                progressBarAllCategories.setVisibility(View.INVISIBLE);
                 Log.e("response", "not null response");
                 Log.e("response", response.message());
                        }
@@ -116,13 +124,16 @@ public  class AllCategoriesFragment  extends Fragment {
 
             Log.e("click category",categoriesList.get(position).getCategory());
             String category_id=categoriesList.get(position).getCategoryId();
-            String category_name=categoriesList.get(position).getCategoryId();
+            String category_name=categoriesList.get(position).getCategory();
+            String category_product_count=categoriesList.get(position).getProductCount();
 
-            Bundle bundle=new Bundle();
+        Bundle bundle=new Bundle();
             bundle.putString("category_id",category_id);
             bundle.putString("category_name",category_name);
+            bundle.putString("category_product_count",category_product_count);
             ProductsFragment productsFragment=new ProductsFragment();
             productsFragment.setArguments(bundle);
+
             assert getFragmentManager() != null;
             getFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, productsFragment, "findThisFragment")
