@@ -79,11 +79,17 @@ public class ProductsFragment extends Fragment {
 
         recyclerViewProducts=view.findViewById(R.id.rv_products);
         noProductImg=view.findViewById(R.id.no_product_img);
+
+      /*
         if(bundle.getString("category_product_count").equals("0")){
-           Log.e("ttt","t");
+
+            Log.e("ttt","t");
             noProductImg.setVisibility(View.VISIBLE);
         }
-        //
+
+
+       */
+
         categoryName=view.findViewById(R.id.tv_ctegory_name_product_fragment);
         linearLayoutManager=new GridLayoutManager(getActivity(),2,RecyclerView.VERTICAL,false);
         recyclerViewProducts.setHasFixedSize(true);
@@ -116,6 +122,10 @@ public class ProductsFragment extends Fragment {
                     progressBar.setVisibility(View.GONE);
                     productsList = response.body().getProducts();
 
+                    if (response.body().getProducts()==null){
+                        Log.e("ttt","t");
+                        noProductImg.setVisibility(View.VISIBLE);
+                    }
                     if (productsList.size()==0){
                         noProductImg.setVisibility(View.VISIBLE);
                     }

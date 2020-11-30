@@ -27,14 +27,18 @@ import com.aliaboubakr.bawabtelsharq.models.Products.Product;
 import com.aliaboubakr.bawabtelsharq.models.Products.ProductsData;
 import com.aliaboubakr.bawabtelsharq.ui.fragments.all_categories.AllCategoriesFragment;
 import com.aliaboubakr.bawabtelsharq.ui.fragments.bottom_navigation.nav_home.adapters.AllProductsAdapter;
+import com.aliaboubakr.bawabtelsharq.ui.fragments.products.ProductsFragment;
 import com.aliaboubakr.bawabtelsharq.ui.fragments.profiles.profile_product.ProfileProductFragment;
 import com.aliaboubakr.bawabtelsharq.ui.fragments.suppliers.SuppliersFragment;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
+import com.denzcoskun.imageslider.interfaces.ItemClickListener;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.github.ybq.android.spinkit.sprite.Sprite;
 import com.github.ybq.android.spinkit.style.Circle;
 import com.github.ybq.android.spinkit.style.DoubleBounce;
+import com.google.android.material.behavior.HideBottomViewOnScrollBehavior;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +48,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public  class NavHomeFragment extends Fragment {
+
+    BottomNavigationView bottomNav;
 
     ImageSlider imageSlider;
     List <Product> productsList=null;
@@ -80,6 +86,8 @@ public  class NavHomeFragment extends Fragment {
         progressBar.setIndeterminateDrawable(doubleBounce);
         progressBar.setVisibility(View.INVISIBLE);
 
+        //bottomNav = v.findViewById(R.id.bottom_navigation);
+        //bottomNav.setVisibility(View.VISIBLE);
 
         return v;
 
@@ -91,15 +99,13 @@ public  class NavHomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         layoutManager=new GridLayoutManager(getActivity(),2,RecyclerView.VERTICAL,false);
         recyclerViewProducts=view.findViewById(R.id.rv_all_products_home);
         nestedScrollView=view.findViewById(R.id.nestedScrollView);
         recyclerViewProducts.setHasFixedSize(true);
         recyclerViewProducts.setLayoutManager(layoutManager);
         getAllProducts(page);
-
-
-
 
         nestedScrollView.setOnScrollChangeListener(((NestedScrollView.OnScrollChangeListener) (v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
 
@@ -130,13 +136,25 @@ public  class NavHomeFragment extends Fragment {
             }
         }));
 
-
-
-
-
-
-
         sliderInitialization(view);
+        imageSlider.setItemClickListener(new ItemClickListener() {
+            @Override
+            public void onItemSelected(int i) {
+
+                if (i==0){
+                    //Log.e("slider_click ",""+i);
+                    openCategory(98,"");
+                }else if (i==1){
+                    //Log.e("slider_click ",""+i);
+                    openCategory(129,"");
+                }else if (i==2){
+                    openCategory(126,"");
+                    //Log.e("slider_click ",""+i);
+                }
+
+            }
+        });
+
         view.findViewById(R.id.view_all_categories_home).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -200,14 +218,17 @@ public  class NavHomeFragment extends Fragment {
         imageSlider=view.findViewById(R.id.image_slider);
 
         List<SlideModel> sliderModelsArrayList = new ArrayList<>();
-        sliderModelsArrayList.add(new SlideModel("https://www.bawabtalsharq.com/images/promo/11/Agricultural.jpg","AGRICULTER & CROUPS", ScaleTypes.FIT));
-        sliderModelsArrayList.add(new SlideModel("https://www.bawabtalsharq.com/images/promo/2/Medicine_and_Health__.jpg","MEDICINE & HEALTH", ScaleTypes.FIT));
-        sliderModelsArrayList.add(new SlideModel("https://www.bawabtalsharq.com/images/promo/2/skin_care.jpg","SKIN CARE", ScaleTypes.FIT));
+        sliderModelsArrayList.add(new SlideModel("https://www.bawabtalsharq.com/images/promo/11/Agricultural.jpg","", ScaleTypes.FIT));
+        sliderModelsArrayList.add(new SlideModel("https://www.gatetoeast.com/demo4/images/promo/3/clothes.jpg","", ScaleTypes.FIT));
+        sliderModelsArrayList.add(new SlideModel("https://www.bawabtalsharq.com/images/promo/2/Medicine_and_Health__.jpg","", ScaleTypes.FIT));
+
+
 
 
         //   rvSlider.setAdapter(sliderAdapterExample);
           imageSlider.setImageList(sliderModelsArrayList);
 
+          //imageSlider.setTouchListener();
     }
 
     //try paging
@@ -346,6 +367,18 @@ public  class NavHomeFragment extends Fragment {
     private void openAllSuppilers() {
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, new SuppliersFragment(), "findThisFragment")
+                .addToBackStack(null)
+                .commit();
+    }
+
+    private void openCategory(int category_id,String category_name) {
+        Bundle slider_bundle=new Bundle();
+        slider_bundle.putString("category_id",String.valueOf(category_id));
+        slider_bundle.putString("category_name",category_name);
+        ProductsFragment productsFragment=new ProductsFragment();
+        productsFragment.setArguments(slider_bundle);
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, productsFragment, "findThisFragment")
                 .addToBackStack(null)
                 .commit();
     }

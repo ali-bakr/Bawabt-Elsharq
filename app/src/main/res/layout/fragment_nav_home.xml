@@ -46,7 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_130sdp"
             app:iss_auto_cycle="true"
-            app:iss_period="500"
+            app:iss_period="1000"
             app:iss_placeholder="@color/gray_light"
             app:iss_title_background="@drawable/slid_text_back"
             app:iss_delay="0"/>
@@ -82,15 +82,16 @@
 
             />
 
-        <TextView
+    <TextView
 
-            android:layout_width="@dimen/_55sdp"
-            android:layout_height="@dimen/_30sdp"
-            android:layout_gravity="center"
-            android:textSize="@dimen/_11sdp"
-            android:text="all Categories"
-            android:textColor="@color/black"
-            android:textAlignment="center" />
+        android:layout_width="@dimen/_55sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_gravity="center"
+        android:text="All Categories"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_11sdp" />
 
 </LinearLayout>
 
@@ -117,8 +118,9 @@
                 android:layout_width="@dimen/_55sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:textColor="@color/black"
-                android:text="our Suppliers"
-               android:layout_gravity="center"
+                android:text="Our Suppliers"
+                android:gravity="center"
+
                 android:textAlignment="center"
                 android:textSize="@dimen/_11sdp"/>
 
@@ -141,12 +143,13 @@
 
             />
 
+
             <TextView
                 android:layout_width="@dimen/_60sdp"
                 android:layout_height="@dimen/_30sdp"
-                android:text="request for Quotation"
+                android:text="Request for Quotation"
                 android:textColor="@color/black"
-               android:layout_gravity="center"
+               android:gravity="center"
                 android:textAlignment="center"
                 android:textSize="@dimen/_11sdp"
                 />
@@ -166,16 +169,16 @@
                 android:layout_height="@dimen/_30sdp"
                 android:background="@drawable/join_us_logo"
                 android:layout_gravity="center"
-
                 />
+
 
             <TextView
                 android:layout_width="@dimen/_60sdp"
                 android:layout_height="@dimen/_30sdp"
-                android:text="join us       as Supplier"
+                android:text="Join us     As supplier"
                 android:textColor="@color/black"
-                android:layout_gravity="center"
                 android:textAlignment="center"
+                android:gravity="center"
                 android:textSize="@dimen/_11sdp"
                 />
 

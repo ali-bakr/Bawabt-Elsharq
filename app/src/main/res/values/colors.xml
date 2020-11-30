@@ -34,4 +34,12 @@
     <color name="message_dark">#7F8490</color>
     <color name="Facebook_button">#3F5991</color>
     <color name="Google_button">#D34848</color>
+
+ <color name="status_color1">@color/gray_light</color>
+ <color name="status_color2">@color/design_default_color_primary</color>
+ <color name="status_color3">@color/darker_green</color>
+ <color name="status_color4">@color/message_dark</color>
+
+ <color name="status_transparent">#00000000</color>
+
 </resources>

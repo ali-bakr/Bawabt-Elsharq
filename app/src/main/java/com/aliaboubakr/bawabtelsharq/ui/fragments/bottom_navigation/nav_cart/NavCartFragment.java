@@ -9,9 +9,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.aliaboubakr.bawabtelsharq.ui.fragments.intro_slider.LiquidViewPager;
 import com.aliaboubakr.bawabtelsharq.R;
+import com.cuberto.liquid_swipe.LiquidPager;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public  class NavCartFragment extends Fragment {
+    LiquidPager pager;
+    LiquidViewPager viewPager;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

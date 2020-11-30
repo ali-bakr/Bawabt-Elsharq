@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -14,23 +15,32 @@ import com.aliaboubakr.bawabtelsharq.ui.fragments.bottom_navigation.nav_cart.Nav
 import com.aliaboubakr.bawabtelsharq.ui.fragments.bottom_navigation.nav_home.NavHomeFragment;
 import com.aliaboubakr.bawabtelsharq.ui.fragments.bottom_navigation.nav_messenger.NavMessengerFragment;
 import com.aliaboubakr.bawabtelsharq.ui.fragments.bottom_navigation.nav_profile.NavProfileFragment;
+import com.aliaboubakr.bawabtelsharq.ui.fragments.intro_slider.SlideContainerFragment;
 import com.aliaboubakr.bawabtelsharq.ui.fragments.profiles.profile_product.OverviewProductFragment;
 import com.aliaboubakr.bawabtelsharq.ui.fragments.profiles.profile_product.ProfileProductFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
-
+    BottomNavigationView bottomNav;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
-        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+
+        bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
 
         //I added this if statement to keep the selected fragment when rotating the device
+/*
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    new NavHomeFragment()).commit();
+        }
 
+
+ */
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new NavHomeFragment()).commit();
@@ -49,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
                     switch (item.getItemId()) {
                         case R.id.nav_home:
                             selectedFragment = new NavHomeFragment();
+
                             break;
                         case R.id.nav_messenger:
                             selectedFragment = new NavMessengerFragment();
@@ -60,7 +71,10 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment = new NavProfileFragment();
                             break;
 
+
                     }
+
+
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                             selectedFragment).commit();
                     return true;

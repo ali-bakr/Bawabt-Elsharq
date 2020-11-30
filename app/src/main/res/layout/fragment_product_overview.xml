@@ -82,9 +82,9 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView2"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_180sdp"
+            android:layout_height="@dimen/_150sdp"
             android:layout_margin="@dimen/_8sdp"
-            app:cardCornerRadius="@dimen/_10sdp"
+            app:cardCornerRadius="@dimen/_6sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -115,6 +115,7 @@
                     app:iss_delay="0"
                     app:iss_period="500"
                     app:iss_placeholder="@color/gray_light"
+
                     app:iss_title_background="@drawable/slid_text_back" />
 
 
@@ -140,10 +141,10 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView3"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_70sdp"
+            android:layout_height="wrap_content"
 
             android:layout_margin="@dimen/_8sdp"
-            app:cardCornerRadius="@dimen/_10sdp"
+            app:cardCornerRadius="@dimen/_6sdp"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -188,7 +189,7 @@
             android:layout_height="@dimen/_70sdp"
             android:layout_margin="@dimen/_8sdp"
             android:layout_marginTop="12dp"
-            app:cardCornerRadius="@dimen/_10sdp"
+            app:cardCornerRadius="@dimen/_6sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
